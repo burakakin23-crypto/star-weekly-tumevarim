@@ -18,6 +18,16 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Devir kayıtları (başka hesaptaki eski STAR çalışması): ham hali repoya konmaz. Kurallar ve kararlar → bu günlük; dosya tanımları → ilgili dosya kartı; model/yöntem/forecast mantığı → "Birleşmede aktarılacaklar" listesi; şirket verisi → hiçbir yere. Çelişen, eskimiş görünen ya da iki yere ait olabilecek her şey yazılmadan önce kullanıcıya sorulur.
 - Birleşme uyumu: dosya adları, başlıklar ve tarih biçimi (GG.AA.YYYY) `star-weekly` ile aynı tutulur.
 
+### Anayasa ve çalışma kuralları (20.11.2026)
+- **Anayasa:** Açıkta kalan konular Claude'un varsayımıyla kapatılmaz; öneri olarak da olsa mutlaka kullanıcıya sorulur. `CLAUDE.md`'ye 3. ilke olarak eklendi.
+- **Çıktıların kullanımı:** Sonuç girdilerden üretilir; ana model ve Financial Results gibi çıktılardan değer alınarak sonuç üretilmez. Çıktılar yalnız öğrenmek için kullanılır ve denetçi gözüyle eleştirilir; içlerinde insan hatası olabilir. Çıktıda görülen her şüpheli nokta bulgu olarak kullanıcıya sorulur.
+- **Eşzamanlı çalışma:** Proje paylaşıldı; aynı anda iki kişi çalışabilir. Repoda çakışmayı önleyen kurallar `CLAUDE.md` "Çalışma düzeni"nde.
+
+### Tanıtım turu (20.11.2026)
+- Devirden gelen kartlar ve açık sorular veriyle baştan kesinleştirilir. Tanıtılmış 3 girdinin (LP model, Hedge Plan, Budget Calc) kartları dosyayla doğrulanır: yazılı her şey ve açık sorular yeniden sorulur, onaylanan kalır, reddedilen düzeltilir.
+- Dönem: Kasım 2026 Planned (0+30). Turdaki bütün girdiler bu dönemden olur.
+- Ana model ve Financial Results ilk girdiyle bir kez gelir; yalnız girdinin rolünü doğrulamak için kullanılır. Hücre eşlemesi yine "Birleşmede aktarılacaklar"a gider.
+
 ### Kapsam (20.11.2026)
 - Şu an Planned (0+30) girdileri tanıtılıyor.
 

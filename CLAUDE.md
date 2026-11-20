@@ -8,6 +8,7 @@ STAR şirketinin haftalık forecast'ının tümevarım kolu: forecast'a giren do
 
 1. **Tek ev, kopya yok.** Her bilgi türünün tek bir yeri vardır (aşağıdaki tablo). Aynı bilginin ikinci kopyası tutulmaz; bir yerde değişen bilgi başka yerde eskimiş halde kalmaz.
 2. **Dallanma ve versiyon yok.** `v2`, `_yeni`, `_eski` gibi paralel dosyalar ya da açık kalan git dalları tutulmaz. Kazanan yöntem kalır, kaybeden silinir; geçmiş git'tedir.
+3. **Anayasa: varsayımla sonuca gidilmez.** Açıkta kalan hiçbir konu Claude'un varsayımıyla kapatılmaz. Claude önerisini söyler ama her açık konuyu mutlaka kullanıcıya sorar; cevap gelene kadar konu açık kalır.
 
 ## Bilgi nerede durur
 
@@ -40,18 +41,19 @@ Kartlara gerçek rakam ya da şirket verisi yazılmaz; yalnızca yapı ve anlam.
 
 ## Dosya tanıtım rutini
 
-1. Kullanıcı dosyayı sohbete ekler.
-2. Claude dosyayı okuyup yapısını çıkarır ve anlamadığını sorar.
-3. Kullanıcı cevaplar.
-4. Kart yazılır; cevaplanmayanlar "Açık sorular"da kalır.
-5. Değişiklik `main`'e push edilir.
+1. Kullanıcı dosyayı sohbete ekler. İlk girdiyle birlikte aynı dönemin ana modeli (.xlsb) ve Financial Results'ı da bir kez gelir.
+2. Claude dosyayı okur ve yapısını çıkarır. Dosyanın kartı varsa dosyayla karşılaştırır; forecast'taki rolünü modelin bağlantılarından doğrular. Model ve Results'ı denetçi gözüyle okur (KARAR_GUNLUGU "Çıktıların kullanımı").
+3. Claude bütün soruları sohbette seçmeli kartlarla sorar. Her soruda önerisini ve emin olup olmadığını belirtir. Karta yazılı bilgiler de teyit için sorulur.
+4. Kullanıcı cevaplar.
+5. Claude karta ve günlüğe ne yazacağını önce kullanıcıya gösterir; metin birlikte gözden geçirilir.
+6. Kullanıcı onaylayınca yazılır ve `main`'e push edilir. Cevaplanmayanlar "Açık sorular"da kalır.
 
 Kullanıcının cevaplamadığı hiçbir şey kabul sayılmaz.
 
 ## Oturum rutini
 
 **Başlangıç**
-1. Repo klonlu değilse klonla; `KARAR_GUNLUGU.md`'yi oku.
+1. Repo klonlu değilse klonla, klonluysa `git pull --rebase` ile güncelle; `KARAR_GUNLUGU.md`'yi oku.
 2. Project dosya alanındaki referans dosyaları ve `dosyalar/` altındaki kartları listele.
 3. Dosya tanıtılacaksa dosyayı sohbette kullanıcıdan al; eksik ya da şüpheli noktayı kart yazılmadan önce sor.
 
@@ -63,6 +65,13 @@ Kullanıcının cevaplamadığı hiçbir şey kabul sayılmaz.
 ## Çalışma düzeni
 
 - **Git:** Tek dal, `main`. Değişiklik doğrudan `main`'e gider.
+- **Eşzamanlı çalışma:** Proje birden fazla kişiyle paylaşılır; aynı anda iki oturum çalışabilir.
+  - Her yazmadan hemen önce `git pull --rebase` yapılır.
+  - Değişiklik küçük commit'lerle hemen push edilir; oturum boyunca yerelde bekletilmez.
+  - Dosya baştan yazılmaz; yalnız ilgili satır eklenir ya da değiştirilir. Bu özellikle `KARAR_GUNLUGU.md` için geçerlidir.
+  - Push reddedilirse yeniden `git pull --rebase` yapılır.
+  - Çakışmada diğer kişinin satırı silinmez ve üzerine yazılmaz; iki satır birleştirilir.
+  - İki satır anlamca çelişiyorsa çözmeden önce kullanıcıya sorulur.
 - **Kararlar:** Açık konular sohbette soru-cevap ile kapatılır, sonuç günlüğe işlenir. Kullanıcının cevaplamadığı konu kabul sayılmaz.
 - **Kapsam:** Model, yöntem ve forecast mantığı bu kola yazılmaz; böyle bir bilgi gelirse `KARAR_GUNLUGU.md`'deki "Birleşmede aktarılacaklar" listesine kısa not olarak eklenir.
 - **Veri gizliliği:** Şirket verisi (xlsx, xlsm, csv, sap çekimleri) repoya girmez; `.gitignore` bunu dışlar.
