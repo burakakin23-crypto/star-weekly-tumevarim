@@ -43,8 +43,8 @@ Kartlara gerçek rakam ya da şirket verisi yazılmaz; yalnızca yapı ve anlam.
 
 1. Kullanıcı dosyayı sohbete ekler. İlk girdiyle birlikte aynı dönemin ana modeli (.xlsb) ve Financial Results'ı da bir kez gelir.
 2. Claude dosyayı okur ve yapısını çıkarır. Dosyanın kartı varsa dosyayla karşılaştırır; forecast'taki rolünü modelin bağlantılarından doğrular. Model ve Results'ı denetçi gözüyle okur (KARAR_GUNLUGU "Çıktıların kullanımı").
-3. Claude bütün soruları sohbette seçmeli kartlarla sorar. Her soruda önerisini ve emin olup olmadığını belirtir. Karta yazılı bilgiler de teyit için sorulur.
-4. Kullanıcı cevaplar.
+3. Claude bütün soruları bir soru panelinde (claude.ai sayfası) toplar. Her soruda önerisini ve emin olup olmadığını belirtir; karta yazılı bilgiler de teyit için sorulur.
+4. Kullanıcı soruları STAR ekibiyle birlikte panelde cevaplar; Claude cevapları panelden okur.
 5. Claude karta ve günlüğe ne yazacağını önce kullanıcıya gösterir; metin birlikte gözden geçirilir.
 6. Kullanıcı onaylayınca yazılır ve `main`'e push edilir. Cevaplanmayanlar "Açık sorular"da kalır.
 

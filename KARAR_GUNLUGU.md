@@ -29,6 +29,9 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Ana model ve Financial Results ilk girdiyle bir kez gelir; yalnız girdinin rolünü doğrulamak için kullanılır. Hücre eşlemesi yine "Birleşmede aktarılacaklar"a gider.
 - Sıra: LP model → Hedge Plan → Budget Calc → STAR EBITDA Crack Margin Effect.
 - "(STAR)" işaretli açık sorular STAR ekibiyle birlikte cevaplanır.
+- Girdiler turlar halinde toplu tanıtılır; her turun soruları bir panelde toplanır ve bir sonraki toplantıda STAR ekibiyle cevaplanır.
+- Tur 1 paneli (LP model, Hedge Plan; 35 soru): https://claude.ai/artifact/7xovmnq3pPtxe7dxbB8Wm5
+- Tur 2 sırası: Budget Calc → Crack Margin Effect → Gas Power Prices → 3_Stoklar → Inventory Effect.
 
 ### Kapsam (20.11.2026)
 - Şu an Planned (0+30) girdileri tanıtılıyor.
