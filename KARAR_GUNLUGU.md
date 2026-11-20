@@ -37,6 +37,17 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Şu an Planned (0+30) girdileri tanıtılıyor.
 - Nihai hedef: girdiler verilir, çıktı üretilir. Süreç 1–2 ay sürer: girdiler tek tek tanıtılır, açık sorular STAR ekibiyle cevaplanır, tümden gelim kolu (`star-weekly`) ile birleşilir.
 
+### Amaç ve yön (20.11.2026)
+- **Nihai amaç:** Yalnız girdiler verilir, ana modelin ürettiği çıktı elde edilir. Ana model ve Financial Results o aşamada verilmez.
+- **İki kol:** Tümevarım (bu repo) girdileri tek tek tanıtır. Tümden gelim (`star-weekly`) ana modeli verip Claude'a tanıtır ve modelden sonuca gider.
+- **Karşılaştırma:** İki kolun çıktıları karşılaştırılır, ardından kollar birleşir.
+  - **Ne karşılaştırılır:** Ana modelin ve Financial Results'ın çıktılarının tamamı. Hedef birebir aynı sonuç.
+  - **Ölçüm ve tolerans:** Her çıktı kalemi tek tek karşılaştırılır. Fark %1'in altındaysa ve yuvarlamadan geliyorsa kabul edilir. Formülden gelen fark %1'in altında olsa da bildirilir.
+  - **Formül hatası:** Fark modeldeki bir hatadan geliyorsa hatanın kendisi tespit edilir ve kullanıcıya uyarı olarak bildirilir (dosya, sayfa, hücre). Model "doğru cevap" sayılmaz; denetçi gözüyle okunur.
+  - **Zamanlama:** Planned (0+30) girdileri bitince ara dönem (a+p) girdileri tanıtılır, karşılaştırma ondan sonra yapılır.
+- **Pusula:** Her çalışma bu amaca hizmet etmeli. Amaca katkısı olmayan iş açılmaz.
+- **Dönemler:** Planned'da kurulan kurallar ara döneme otomatik taşınmaz; her biri ara dönem dosyası tanıtılırken yeniden sorulur.
+
 ### Devir 1 – Akın-Weekly Star (20.11.2026)
 - Eski projenin `ortak-forecast-metodolojisi` skill'i (güven etiketleri, onay panosu, ayrı kural/varsayım/istisna günlükleri; PETKİM ile ortak) bu kola alınmaz. Bu reponun yapısı geçerlidir.
 - Devirden gelen bilgi kartın başlıklarına yalnız kullanıcı onaylıysa yazılır; onaysız her şey kartın "Açık sorular" bölümüne gider. Onaylı sayılanlar: eski karar günlüğünde kullanıcının bildirdiği kararlar ve eski onay panosunda kullanıcının yorumuyla teyit ettiği kartlar. "Sonra sor", cevapsız ya da yorumu işaretiyle çelişen kartlar onaysızdır.
@@ -81,6 +92,7 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
   - **Model yapısı:** sayfa düzeni, ay türüne göre veri kaynağı, Results'taki model dışı etkiler, KPI tanımları (GRM, Net Cash Margin, Clean GRM), elle müdahale ve haftalık yeniden bağlama haritası.
   - **Reconciliation:** L0–L4 katmanları ve tolerans varsayımı (eski A07).
   - **Hedef çıktı:** model EBITDA'sı mı, Results EBITDA'sı mı (D-01, cevapsız). Haftalık stok kanal payı yöntemi (D-03, cevapsız).
+    - yerine geçer (D-01 için): 20.11.2026 – ana modelin ve Financial Results'ın çıktılarının tamamı karşılaştırılır (bkz. "Amaç ve yön"). D-03 açık.
   - **Çıktı biçimi:** dashboard (ana ekran + kontrol paneli), crack/fiyat senaryo kolları, girdi grubu bazında haftalık köprü (eski K02, K06, K07, K09).
   - **Sunum kuralları:** renk yönü, n.m. yüzde formülü, ay geçişinde kolon kaydırma kontrolü, şekil ve tanımlı ad kuralları; `weekly-sunum-kontrol` ve `denetci` skill'leri.
   - **Ajan ekibi ve döngü:** `star-weekly-orkestra` skill'i.
