@@ -38,6 +38,8 @@ Kasım 2026 Planned zincirine giren bütün dosyaların listesi. Tanıtım sıra
 
 ## C. Kasım satırına giren ama EBITDA altında kalanlar
 
+Kapsam aşamalı açılır (KARAR_GUNLUGU "Amaç ve yön – netleştirme"): bu bölüm aşama 2 (EBITDA altı) ve aşama 3 (bilanço, nakit akış) kapsamındadır.
+
 | # | Dosya | Okuyan | Durum |
 |---|---|---|---|
 | C1 | `2026B STAR Ebitda altı figürler_9 9` | Results (finansman) | ❔ |
@@ -53,6 +55,8 @@ Kasım 2026 Planned zincirine giren bütün dosyaların listesi. Tanıtım sıra
 | C11 | `Taxation 2026B`, `IFRS _USD 2026`, `STAR VUK_TRY 2026`, `STAR IFRS 16 BÜTÇE_v2`, `7'li Hesaplar - STAR`, `Zero Based Budget Templates_B2026_Gayrimenkul Yönetimi` | Model (açılış / Ocak) | ❔ |
 
 ## D. Gerçekleşen aylar (Kasım rakamını değiştirmez; yıl toplamı için)
+
+D2 ve D3 aylık Results ve aylık modeldir; girdi sayılır (KARAR_GUNLUGU "Amaç ve yön – netleştirme"). İçlerinden ne alınacağı açık.
 
 | # | Dosya | Okuyan | Durum |
 |---|---|---|---|
