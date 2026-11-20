@@ -36,4 +36,4 @@
 - **Aynı dosyaya iki kopya:** Bir haftada model aynı adlı girdinin iki farklı konumdaki kopyasına bağlıydı; fiyat eski kopyadan geliyordu (eski B19). Bu artık genel kural (KARAR_GUNLUGU "Girdi kontrol kuralları"); bu dosyada tekrar edip etmediği teyit edilmeli.
 
 ## Tanıtım tarihi
-- 07.11.2026 (Akın-Weekly Star'da, kullanıcı onayı yok). Bu repoya devir: 20.11.2026.
+- **Tanıtılmadı.** Kart, Akın-Weekly Star'ın 07.11.2026'daki ilk incelemesindeki gözlemlerden açıldı (kullanıcı onayı yok). Bu repoya devir: 20.11.2026. Dosya gelince tanıtım rutini uygulanır.

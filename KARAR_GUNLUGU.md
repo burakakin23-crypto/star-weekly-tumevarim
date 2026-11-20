@@ -24,6 +24,8 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Girdi dosyasından modele hücre düzeyindeki eşleme kartlara yazılmaz. Kartta yalnız rolün özeti ve hangi alanın kullanılıp hangisinin kullanılmadığı yazılır; hücre eşlemesi "Birleşmede aktarılacaklar"a gider.
 - Tüm girdilere uyan eski kontrol kuralları kullanıcıya tek tek sorulur; onaylananlar bu günlüğe yazılır.
 - Haftalık STAR girdi dosyası (`STAR <Ay> 2026 a__p.xlsx`) ile Planned LP model (`STAR Budget (2026) - Forecast (gg.aa.yyyy)`) iki ayrı karttır.
+- Akın-Weekly Star bu kolun (tümevarım) eski çalışmasıdır; orada 3 girdi tanıtıldı: LP model, Hedge Plan, Budget Calc. Haftalık STAR girdi dosyasının kartı tanıtılmamış dosya olarak durur; dosya gelince tanıtılır.
+- "STAR Weekly Forecast Automation" projesi tümden gelim koludur; onun bilgisi bu repoya değil `star-weekly`'ye gider. Bu kolun devri Akın-Weekly Star paketiyle tamamlandı.
 
 ### Girdi kontrol kuralları (20.11.2026)
 Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelleştirilmiş hali; kullanıcı tek tek onayladı.
