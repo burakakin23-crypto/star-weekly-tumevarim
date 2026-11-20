@@ -17,6 +17,7 @@ STAR şirketinin haftalık forecast'ının tümevarım kolu: forecast'a giren do
 | Rutin, ilkeler, dosya haritası, dosya kartı biçimi | `CLAUDE.md` (bu dosya) |
 | Yürürlükteki kurallar, kararlar, açık konular | `KARAR_GUNLUGU.md` |
 | Girdi dosyası tanımları | `dosyalar/<dosya_adı>.md` (dosya başına tek kart) |
+| Girdi kontrol listesi (hangi girdi var, durumu) | `GIRDI_LISTESI.md` |
 | Kod ve testler | Bu repo |
 | Sabit referans bilgiler (eşleme tabloları vb.) | claude.ai Project dosya alanı |
 | Tanıtılan dosyanın kendisi ve haftalık veri | Sohbete eklenir; repoya girmez |
