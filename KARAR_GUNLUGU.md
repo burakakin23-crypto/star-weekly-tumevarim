@@ -47,6 +47,7 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
 
 **Değer kontrolü**
 - Fiyatı olup hacmi olmayan kalem uyarıdır, hata sayılmaz (eski R13).
+- Hacmi olup fiyatı olmayan kalem hatadır; fiyat kaynağı kullanıcıya sorulmadan devam edilmez.
 - Birim uyuşmazlığında sessiz dönüşüm yapılmaz, uyarı verilir (eski R14).
 - Elle yazılmış değer ya da başka ayın dosyasına giden bağlantı görülürse uyarılır (eski R07).
 - Her rakam dosya + sayfa + hücreye izlenebilir olmalı; kaynakta olmayan rakam üretilmez.

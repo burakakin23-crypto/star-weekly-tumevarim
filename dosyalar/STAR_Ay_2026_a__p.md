@@ -23,7 +23,7 @@
 - Teyitli bilgi yok (bkz. Açık sorular).
 
 ## Açık sorular
-- **LP model ile ilişki:** Bu dosya Planned LP model (`STAR Budget (2026) - Forecast`) ile aynı dosyanın haftalık hali mi, ayrı bir dosya mı? Kim hazırlıyor? Haftalık mı geliyor?
+- **LP model ile ilişki:** Bu dosya Planned LP model'in actual + forecast sürümü (`STAR_LP_<Ay>_2026_<a>_<p>` adıyla da anılıyor) mu, ayrı bir dosya mı? Kim hazırlıyor? Haftalık mı geliyor? Dosya gelince bakılacak.
 - **Ad kalıbı (Claude gözlemi, onaysız):** `a+p` = ayın gerçekleşen gün sayısı + plan gün sayısı (ör. `16 15` → 1–16 gerçekleşen, 17–31 plan; `0 30` → ay tamamen plan).
 - **Yapı (Claude gözlemi, onaysız):**
   - **Production Plan:** D = gerçekleşen, E = plan; ham petrol alımları, ithalat, utility tüketimleri, nihai ürünler, ara ürünler, kayıp %, HVP verimi.
