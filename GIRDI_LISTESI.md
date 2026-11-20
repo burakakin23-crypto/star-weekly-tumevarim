@@ -26,6 +26,7 @@ Kasım 2026 Planned zincirine giren bütün dosyaların listesi. Tanıtım sıra
 | A16 | `9 3 Upside Downside Effects 2026` | Results | ⏳ | – |
 | A17 | `TFS_Rolling Forecast_9+3_2026` | Results (diğer gelir/gider) | ⏳ | – |
 | A18 | `STAR Ticari Ürün_2026 9 3` | Results (Revenue Breakdown) | ⏳ | – |
+| A19 | `STAR Open Trades_<ggaayy>` | Hedge Plan (tarihli işlem sayfalarının olası kaynağı; teyit edilmedi). Model bağlantılarında görünmüyor; `star-weekly` bildirdi | ⏳ | – |
 
 ## B. Model ve Results'tan türeyen hesap dosyaları
 
