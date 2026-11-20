@@ -22,4 +22,13 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 
 - **Birleşme (20.11.2026):** Bu kol `star-weekly` ile birleşecek; biçimi o gün kararlaştırılır.
 - **Birleşmede aktarılacaklar (20.11.2026):** Yöntem/model/forecast mantığına ait olup bu kola ait olmayan bilgiler burada listelenir.
-  - (henüz yok)
+  - *Kaynak: Akın-Weekly Star devir paketi (20.11.2026; kayıtların son hali 11.11.2026). Ayrıntı pakette; buraya yalnız başlık yazıldı.*
+  - **Engine hedefi:** Nihai hedefte yalnız girdiler verilir; ana model (.xlsb) ve Financial Results verilmez, aynı sonuç bağımsız engine ile üretilir. Öğrenme aşamasında model ve Results yalnız doğrulama referansıdır (eski K16; eski K05 "model gerçeğin kaynağı"nın yerine geçmiş). Production girdi paketinde modelin olup olmayacağı (D-02) cevapsız.
+  - **Eski motor:** Excel modelinin Python kopyası; kodu kayıp, yöntemi eski MODEL_REHBERI'de belgeli.
+  - **Model yapısı:** sayfa düzeni, ay türüne göre veri kaynağı, Results'taki model dışı etkiler, KPI tanımları (GRM, Net Cash Margin, Clean GRM), elle müdahale ve haftalık yeniden bağlama haritası.
+  - **Reconciliation:** L0–L4 katmanları ve tolerans varsayımı (eski A07).
+  - **Hedef çıktı:** model EBITDA'sı mı, Results EBITDA'sı mı (D-01, cevapsız). Haftalık stok kanal payı yöntemi (D-03, cevapsız).
+  - **Çıktı biçimi:** dashboard (ana ekran + kontrol paneli), crack/fiyat senaryo kolları, girdi grubu bazında haftalık köprü (eski K02, K06, K07, K09).
+  - **Sunum kuralları:** renk yönü, n.m. yüzde formülü, ay geçişinde kolon kaydırma kontrolü, şekil ve tanımlı ad kuralları; `weekly-sunum-kontrol` ve `denetci` skill'leri.
+  - **Ajan ekibi ve döngü:** `star-weekly-orkestra` skill'i.
+  - **STAR ekibine sorulacak model/Results soruları:** Net Refinery Margin tanımı, hedge roll çift sayımı, model Checks hataları, Results'taki sabit sayılar, sunumdaki FY EBITDA'nın aylık baza bağlı olması.
