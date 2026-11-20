@@ -1,0 +1,13 @@
+# Şirket verisi repoya girmez
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+*.parquet
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
