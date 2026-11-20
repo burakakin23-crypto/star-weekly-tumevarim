@@ -27,9 +27,12 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Devirden gelen kartlar ve açık sorular veriyle baştan kesinleştirilir. Tanıtılmış 3 girdinin (LP model, Hedge Plan, Budget Calc) kartları dosyayla doğrulanır: yazılı her şey ve açık sorular yeniden sorulur, onaylanan kalır, reddedilen düzeltilir.
 - Dönem: Kasım 2026 Planned (0+30). Turdaki bütün girdiler bu dönemden olur.
 - Ana model ve Financial Results ilk girdiyle bir kez gelir; yalnız girdinin rolünü doğrulamak için kullanılır. Hücre eşlemesi yine "Birleşmede aktarılacaklar"a gider.
+- Sıra: LP model → Hedge Plan → Budget Calc → STAR EBITDA Crack Margin Effect.
+- "(STAR)" işaretli açık sorular STAR ekibiyle birlikte cevaplanır.
 
 ### Kapsam (20.11.2026)
 - Şu an Planned (0+30) girdileri tanıtılıyor.
+- Nihai hedef: girdiler verilir, çıktı üretilir. Süreç 1–2 ay sürer: girdiler tek tek tanıtılır, açık sorular STAR ekibiyle cevaplanır, tümden gelim kolu (`star-weekly`) ile birleşilir.
 
 ### Devir 1 – Akın-Weekly Star (20.11.2026)
 - Eski projenin `ortak-forecast-metodolojisi` skill'i (güven etiketleri, onay panosu, ayrı kural/varsayım/istisna günlükleri; PETKİM ile ortak) bu kola alınmaz. Bu reponun yapısı geçerlidir.
