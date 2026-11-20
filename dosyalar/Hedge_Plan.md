@@ -2,7 +2,6 @@
 
 ## Dosya adı ve sürümü/dönemi
 - Standart ad: `Hedge_Plan_2026_0_30 Forecast_<Ay> Planned` (dönem etiketi + ay + Planned).
-- Dosya adından değil içeriğinden tanınır; ad farklı gelirse durulmaz, uyarılır.
 - İlk incelenen sürüm: Kasım 2026 Planned.
 
 ## Kaynak
@@ -22,7 +21,8 @@
 - Hücre düzeyindeki model eşlemesi ve hedge hesabı bu kartta yok (bkz. KARAR_GUNLUGU "Birleşmede aktarılacaklar").
 
 ## Bilinen tuzaklar / temizlik adımları
-- Ad standarttan farklı gelebilir (ör. dönem etiketi farklı yazılmış); içerikten tanınır, uyarılır.
+- Genel girdi kontrol kuralları geçerli (KARAR_GUNLUGU "Girdi kontrol kuralları").
+- Ad standarttan farklı gelebilir (ör. dönem etiketi farklı yazılmış).
 
 ## Açık sorular
 - **Sıklık:** Haftalık mı? Eski analizde "finans süreci, haftalık" yazıyor ama onaylanmamış.

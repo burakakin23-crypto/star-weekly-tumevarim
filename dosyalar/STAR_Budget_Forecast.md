@@ -3,7 +3,6 @@
 ## Dosya adı ve sürümü/dönemi
 - Standart ad: `STAR Budget (2026) - Forecast (gg.aa.yyyy)`; parantezdeki tarih dosyanın hazırlandığı gün.
 - Planned (0+30) dönemi için girdi. İlk incelenen sürüm: Kasım 2026 Planned.
-- Dosya adından değil içeriğinden tanınır; ad farklı gelirse durulmaz, uyarılır.
 
 ## Kaynak
 - Doğrudan Ticaret ekibinden gelir.
@@ -20,7 +19,7 @@
 - Birimler: ham petrol fiyatı $/bbl · ithal fiyatı $/ton · Production Plan ton/ay · elektrik MWh/ay · ürün fiyatı $/ton.
 
 ## Anahtar alanlar ve diğer dosyalarla eşleşmesi
-- Anahtar: kalem adı (C sütunu). Satırlar ada göre eşlenir.
+- Anahtar: kalem adı (C sütunu).
 - Ad farkları (dosya içinde ya da modelin ürün/ham petrol listesiyle):
   - KEBCO ↔ Kebco (Kazakh Export Blend Crude Oil)
   - Ural (Spot) ↔ Ural
@@ -41,11 +40,10 @@
 - Hücre düzeyindeki model eşlemesi bu kartta yok (bkz. KARAR_GUNLUGU "Birleşmede aktarılacaklar").
 
 ## Bilinen tuzaklar / temizlik adımları
-- Boş satırlar da takip edilir; veri sonradan gelebilir.
-- Dosyada dolu olup forecast'a girmeyen her kalem için uyarı verilir. Ara ürünlerin modele bağlanmaması geçmişte kullanıcı hatası olarak görüldü.
-- Fiyatı olup hacmi olmayan kalem uyarıdır, hata değildir.
-- Product Prices başlığında "(ton/month)" yazıyor, değerler $/ton. Birim uyuşmazlığında sessiz dönüşüm yapılmaz, uyarı verilir.
-- Yeni kalem kullanıcıya sorulmadan eklenmez.
+- Genel girdi kontrol kuralları geçerli (KARAR_GUNLUGU "Girdi kontrol kuralları").
+- Ara ürünlerin modele bağlanmaması geçmişte kullanıcı hatası olarak görüldü.
+- Product Prices başlığında "(ton/month)" yazıyor, değerler $/ton.
+- Ad standarttan farklı gelebilir (ör. `STAR_LP_<Ay>_2026_0_30_Planned` beklenirken bu adla geldi).
 
 ## Açık sorular
 - **Sıklık:** Haftalık mı? Eski analizde "Ticaret, haftalık" yazıyor ama onaylanmamış.

@@ -25,6 +25,27 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Tüm girdilere uyan eski kontrol kuralları kullanıcıya tek tek sorulur; onaylananlar bu günlüğe yazılır.
 - Haftalık STAR girdi dosyası (`STAR <Ay> 2026 a__p.xlsx`) ile Planned LP model (`STAR Budget (2026) - Forecast (gg.aa.yyyy)`) iki ayrı karttır.
 
+### Girdi kontrol kuralları (20.11.2026)
+Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelleştirilmiş hali; kullanıcı tek tek onayladı.
+
+**Tanıma ve dönem**
+- Dosya adından değil içeriğinden tanınır; ad standarttan farklıysa durulmaz, uyarılır (eski R09).
+- Aynı adlı girdinin iki farklı kopyası/konumu kullanılıyorsa hata sayılır (eski R16).
+- Dosyaların hepsi aynı versiyona (Planned / a+p haftası) ait değilse önce bu söylenir.
+- Yüklenen dosya değiştirilmez, kopyasında çalışılır. Düzeltmeyi kullanıcı yapar; Claude hücre bazında söyler.
+
+**Satır ve kalem**
+- Tüm satırlar, boş olanlar dahil, gruplu takip edilir; veri sonradan gelebilir (eski R02).
+- Satırlar ada göre eşlenir; veri gelince otomatik kullanılır, karşılığı yoksa uyarı verilir (eski R08).
+- Yeni kalem kullanıcıya sorulmadan eklenmez (eski R15).
+- Girdide dolu olup forecast'a girmeyen her kalem için uyarı verilir (eski R05).
+
+**Değer kontrolü**
+- Fiyatı olup hacmi olmayan kalem uyarıdır, hata sayılmaz (eski R13).
+- Birim uyuşmazlığında sessiz dönüşüm yapılmaz, uyarı verilir (eski R14).
+- Elle yazılmış değer ya da başka ayın dosyasına giden bağlantı görülürse uyarılır (eski R07).
+- Her rakam dosya + sayfa + hücreye izlenebilir olmalı; kaynakta olmayan rakam üretilmez.
+
 ## Açık konular
 
 - **Birleşme (20.11.2026):** Bu kol `star-weekly` ile birleşecek; biçimi o gün kararlaştırılır.

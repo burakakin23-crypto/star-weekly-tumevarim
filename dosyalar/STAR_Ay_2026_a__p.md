@@ -33,7 +33,7 @@
 - **Elle eklenen yardımcı sütunlar:** Production Plan'da toplam, kanal payı ve hacim ağırlıklı fiyat sütunları elle eklenmiş; sonraki ay dosyasında bir sütuna önceki haftanın değeri yapıştırılmış. Model bu sütunlara bağlı. Her hafta var olup doğru haftayı gösterdikleri kontrol edilmeli mi? (eski B10, onaysız)
 - **Elle yazılmış plan değeri:** VGO plan değeri ay toplamını sabitleyen elle yazılmış bir formülle girilmiş. STAR planlamaya sorulacak (eski B15, onaysız).
 - **Gerçekleşen = plan:** Bir haftada C5 (Petkim) ve Rafinat (Petkim) satırlarında gerçekleşen ve plan sütunları aynı; ay toplamı iki katına çıkmış görünüyor. Kopyalama hatası mı? Yüksek öncelikli, STAR planlamaya sorulacak (eski B18, onaysız).
-- **Aynı dosyaya iki kopya:** Bir haftada model aynı adlı girdinin iki farklı konumdaki kopyasına bağlıydı; fiyat eski kopyadan geliyordu (eski B19). Genel kural olarak ayrıca soruluyor (eski R16).
+- **Aynı dosyaya iki kopya:** Bir haftada model aynı adlı girdinin iki farklı konumdaki kopyasına bağlıydı; fiyat eski kopyadan geliyordu (eski B19). Bu artık genel kural (KARAR_GUNLUGU "Girdi kontrol kuralları"); bu dosyada tekrar edip etmediği teyit edilmeli.
 
 ## Tanıtım tarihi
 - 07.11.2026 (Akın-Weekly Star'da, kullanıcı onayı yok). Bu repoya devir: 20.11.2026.
