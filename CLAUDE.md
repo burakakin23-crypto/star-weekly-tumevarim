@@ -18,6 +18,7 @@ STAR şirketinin haftalık forecast'ının tümevarım kolu: forecast'a giren do
 | Yürürlükteki kurallar, kararlar, açık konular | `KARAR_GUNLUGU.md` |
 | Girdi dosyası tanımları | `dosyalar/<dosya_adı>.md` (dosya başına tek kart) |
 | Girdi kontrol listesi (hangi girdi var, durumu) | `GIRDI_LISTESI.md` |
+| İş sıraları ve bakış açıları (skill'ler) | `skills/` (katalog: `skills/README.md`) |
 | Kod ve testler | Bu repo |
 | Sabit referans bilgiler (eşleme tabloları vb.) | claude.ai Project dosya alanı |
 | Tanıtılan dosyanın kendisi ve haftalık veri | Sohbete eklenir; repoya girmez |
@@ -42,26 +43,24 @@ Kartlara gerçek rakam ya da şirket verisi yazılmaz; yalnızca yapı ve anlam.
 
 ## Dosya tanıtım rutini
 
-1. Kullanıcı dosyayı sohbete ekler. İlk girdiyle birlikte aynı dönemin ana modeli (.xlsb) ve Financial Results'ı da bir kez gelir.
-2. Claude dosyayı okur ve yapısını çıkarır. Dosyanın kartı varsa dosyayla karşılaştırır; forecast'taki rolünü modelin bağlantılarından doğrular. Model ve Results'ı denetçi gözüyle okur (KARAR_GUNLUGU "Çıktıların kullanımı").
-3. Claude bütün soruları bir soru panelinde (claude.ai sayfası) toplar. Her soruda önerisini ve emin olup olmadığını belirtir; karta yazılı bilgiler de teyit için sorulur.
-4. Kullanıcı soruları STAR ekibiyle birlikte panelde cevaplar; Claude cevapları panelden okur.
-5. Claude karta ve günlüğe ne yazacağını önce kullanıcıya gösterir; metin birlikte gözden geçirilir.
-6. Kullanıcı onaylayınca yazılır ve `main`'e push edilir. Cevaplanmayanlar "Açık sorular"da kalır.
+**Dosya tanıtmadan önce `skills/star-girdi-tanitma/SKILL.md` dosyasını oku.** Tanıtım adımları orada durur. Kullanıcının cevaplamadığı hiçbir şey kabul sayılmaz.
 
-Kullanıcının cevaplamadığı hiçbir şey kabul sayılmaz.
+## Skill'ler
+
+İşlerin sırası ve bakış açıları `skills/` altındadır. **Bir işe başlamadan önce `skills/README.md` kataloğuna bak ve ilgili skill'i oku:** girdi tanıtma, girdi listesi, soru paneli, karar işleme ve roller. Skill kural koymaz; kurallar bu dosyada ve `KARAR_GUNLUGU.md`'dedir (KARAR_GUNLUGU "Skill düzeni").
 
 ## Oturum rutini
 
 **Başlangıç**
 1. Repo klonlu değilse klonla, klonluysa `git pull --rebase` ile güncelle; `KARAR_GUNLUGU.md`'yi oku.
 2. Project dosya alanındaki referans dosyaları ve `dosyalar/` altındaki kartları listele.
-3. Dosya tanıtılacaksa dosyayı sohbette kullanıcıdan al; eksik ya da şüpheli noktayı kart yazılmadan önce sor.
+3. `skills/README.md` kataloğuna bak; yapılacak işin skill'ini oku. Dosya tanıtılacaksa `skills/star-girdi-tanitma/SKILL.md`.
 
 **Bitiş**
 1. Oturumda verilen kararları `KARAR_GUNLUGU.md`'ye işle. Eski kural silinmez, altına "yerine geçer: …" yazılır; kapanan açık konu listeden çıkar.
 2. Değişiklikleri doğrudan `main`'e commit + push et. Açık dal bırakma.
 3. Veri dosyasının commit'e girmediğini kontrol et.
+4. İşte öğrenilen yöntemi ilgili skill'in Öğrenilenler bölümüne ekle; yeni skill eklediysen ya da Öğrenilenler'e yazdıysan kullanıcıya ne eklediğini söyle.
 
 ## Çalışma düzeni
 

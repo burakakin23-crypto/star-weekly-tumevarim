@@ -8,6 +8,7 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Bu repo (`star-weekly-tumevarim`) STAR haftalık forecast'ının tümevarım koludur: girdi dosyaları tek tek tanıtılır. Tümden gelim kolu `star-weekly` reposudur.
 - Detaylar GitHub'da (`star-weekly-tumevarim` reposu); claude.ai Project talimatı yalnızca repoya işaret eder.
 - Oturum rutini ve dosya tanıtım rutini repodaki `CLAUDE.md`'de tutulur; ayrı bir skill yok.
+  - yerine geçer: 20.11.2026 – oturum rutini `CLAUDE.md`'de kalır; dosya tanıtım adımları `skills/star-girdi-tanitma/SKILL.md`'ye taşındı; skill düzeni kuruldu (bkz. "Skill düzeni").
 - İlkeler: tek ev / kopya yok; dallanma ve versiyon yok.
 - Git: doğrudan `main`.
 - Bağımsızlık: `star-weekly` dışındaki projelerden (ör. OPEX) kural, eşik ya da yöntem taşınmaz; `star-weekly`'den de bir şey ancak kullanıcı açıkça isterse alınır.
@@ -67,6 +68,18 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - **Karşılaştırmada girdi sürümü:** Kolların karşılaştırması, Planned modelin fiilen bağlı olduğu girdi sürümleriyle yapılır; farklı sürümle koşu yalnız teknik testtir. (Kasım Planned modeli 10+2 bazlı, ama bağlı olduğu bazı girdiler 9+3 adını taşıyor; bkz. `GIRDI_LISTESI.md`.)
 - **Karar dosyası:** Birleşmeye kadar `KARAR_GUNLUGU.md`; birleşmede içerik `star-weekly`'nin `00_MASTER/04_KARARLAR.md` yapısına taşınır.
 - **Pusula:** Yeni iş açılırken amaca katkısı yazılır; amaca katkısı olmayan iş açılmaz; park işlere şimdi dokunulmaz.
+
+### Skill düzeni (20.11.2026)
+Karar veren: Akın. `star-weekly`'deki düzenle aynı yapı (orada M-31); içerik bu kolun işine göre yazıldı.
+- **Yer:** `skills/<ad>/SKILL.md`; her dosyanın başında `name` ve `description`. Katalog: `skills/README.md` (iş skill'leri, rol skill'leri, bekleyenler). Dosyalar düz metindir; tek bir araca bağlı değildir.
+- **İş skill'leri:** `star-girdi-tanitma`, `star-girdi-listesi`, `star-soru-paneli`, `star-karar-isleme`.
+- **Rol skill'leri** (adlar `star-weekly` ile aynı; birleşmede tek dosya olur): `star-rol-denetci`, `star-rol-model-denetcisi`, `star-rol-muhasebeci`, `star-rol-finansci`, `star-rol-analist`, `star-rol-rafineri-uzmani`, `star-rol-hedge-uzmani`, `star-rol-cfo`, `star-rol-sunumcu`. Rol kural koymaz.
+- **Bekleyenler:** önünde açık karar olan skill yazılmaz, katalogda bekler.
+- **Dosya tanıtım adımları** `star-girdi-tanitma` skill'indedir; `CLAUDE.md` oraya işaret eder. Dosya kartı biçimi `CLAUDE.md`'de kalır.
+- **Atıf:** skill kurala ve karara bölüm başlığıyla atıf yapar, metnini kopyalamaz. **Atıf yapılan bölüm başlıkları değiştirilmez** (`CLAUDE.md` ve bu günlükteki bölüm başlıkları).
+- **Öğrenme:** her skill'de Öğrenilenler bölümü vardır (tarih / ne görüldü / bundan sonra ne yapılır). Claude gerek gördüğünde yeni skill ekleyebilir ve Öğrenilenler'e kendiliğinden yazabilir; oturum sonunda ne eklediğini söyler.
+- **Sınır:** kendiliğinden yazma yalnız Öğrenilenler ve yeni skill için geçerlidir; kart ve günlük için "önce göster" kuralı sürer. Skill yalnız "nasıl yapılır"ı öğrenir: kural, eşik, kapsam ya da karar değiştiren şey kullanıcıya sorulur ve bu günlüğe işlenir. Açık konu skill'de varsayımla kapatılmaz. Skill'e finansal rakam ve dosya içeriği yazılmaz.
+- **Tek ev:** aynı adım iki skill'de anlatılmaz; biri diğerine işaret eder.
 
 ### Devir 1 – Akın-Weekly Star (20.11.2026)
 - Eski projenin `ortak-forecast-metodolojisi` skill'i (güven etiketleri, onay panosu, ayrı kural/varsayım/istisna günlükleri; PETKİM ile ortak) bu kola alınmaz. Bu reponun yapısı geçerlidir.
