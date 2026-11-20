@@ -18,6 +18,9 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 - Devir kayıtları (başka hesaptaki eski STAR çalışması): ham hali repoya konmaz. Kurallar ve kararlar → bu günlük; dosya tanımları → ilgili dosya kartı; model/yöntem/forecast mantığı → "Birleşmede aktarılacaklar" listesi; şirket verisi → hiçbir yere. Çelişen, eskimiş görünen ya da iki yere ait olabilecek her şey yazılmadan önce kullanıcıya sorulur.
 - Birleşme uyumu: dosya adları, başlıklar ve tarih biçimi (GG.AA.YYYY) `star-weekly` ile aynı tutulur.
 
+### Kapsam (20.11.2026)
+- Şu an Planned (0+30) girdileri tanıtılıyor.
+
 ### Devir 1 – Akın-Weekly Star (20.11.2026)
 - Eski projenin `ortak-forecast-metodolojisi` skill'i (güven etiketleri, onay panosu, ayrı kural/varsayım/istisna günlükleri; PETKİM ile ortak) bu kola alınmaz. Bu reponun yapısı geçerlidir.
 - Devirden gelen bilgi kartın başlıklarına yalnız kullanıcı onaylıysa yazılır; onaysız her şey kartın "Açık sorular" bölümüne gider. Onaylı sayılanlar: eski karar günlüğünde kullanıcının bildirdiği kararlar ve eski onay panosunda kullanıcının yorumuyla teyit ettiği kartlar. "Sonra sor", cevapsız ya da yorumu işaretiyle çelişen kartlar onaysızdır.
