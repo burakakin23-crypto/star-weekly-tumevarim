@@ -18,6 +18,7 @@
 - Kalem adı **C** sütununda; aylar **D–O** (Ocak–Aralık).
 - Production Plan **Q** sütunu: kanal oranı yardımcı formülleri (kalem / grup toplamı).
 - Crude & Import Prices **S** sütunu: dönüşüm faktörü (bbl/t).
+- Birimler: ham petrol fiyatı $/bbl · ithal fiyatı $/ton · Production Plan ton/ay · elektrik MWh/ay · ürün fiyatı $/ton. Başlıkta yazan birim değerle uyuşmazsa uyarı olarak bildirilir.
 - Satır grupları (boş satırlar dahil):
   - Hacim (Production Plan): Crude Oil 43 · Imports 7 · Utility 6 · Final Products 27 · Intermediate Products 17.
   - Fiyat: aynı gruplar (Crude & Import Prices, Product Prices) + ham petrol ve ithal için dönüşüm faktörü.
@@ -51,15 +52,18 @@
 - Modelde doğalgaz satırları "Natural Gas" (LP'deki Process) ve "Natural gas" (LP'deki Fuel) yalnız büyük/küçük harfle ayrılır; ayrım LP'deki parantezden yapılır.
 - Production Plan Q sütunundaki kanal oranı formülleri tek bir aya sabit yazılmış; ay değişince kendiliğinden kaymaz. Oran zaten her zaman hesaplanır.
 - Ural (Spot)'un assay'i bilinçli olarak KEBCO'nunkiyle aynıdır.
+- Product Prices başlığında "(ton/month)" yazıyor, değerler $/ton: başlık hatası, uyarı olarak bildirilir.
 - Product Prices'ta fiyat, ürün satırlarından (ör. ULSD ve Jet satırları) olduğu gibi alınır. Altındaki yoğunluk düzeltmeli efektif fiyat bloğu LP'nin kendi iç hesabıdır; bu kolda hesaplanmaz, kural konmaz. Orada mantıksız bir şey görülürse yalnız bilgi olarak bildirilir. Ürün satırında fiyat boş ama hacim varsa genel kural uygulanır (hacim var, fiyat yok = hata).
 - Bulgu: Kasım 2026 Planned modelinde pozitif High Sulphur Gasoil ve Vacuum Residue ara ürün satırlarına bağlanmamış.
 
 ## Açık sorular
 *(STAR) = STAR ekibiyle cevaplanacak.*
-- **Birimler (STAR):** Ham petrol fiyatı $/bbl, ithal fiyatı $/ton, Production Plan ton/ay, elektrik MWh/ay, ürün fiyatı $/ton olarak okundu. Product Prices başlığında "(ton/month)" yazıyor, değerler $/ton görünüyor. (Tur 1 B1: açık)
-- **Negatif ara ürünün fiyatı (STAR):** − gelen ara ürün import satırına pozitif hacim olarak işlenir; fiyatı ithal fiyatı mı (Crude & Import Prices), ara ürün fiyatı mı (Product Prices)? Negatif HSGO, Imports'taki "HSGO 0.1%" ile aynı model satırına düşer. (Tur 1 C2: açık)
+- **Negatif ara ürünün fiyatı (STAR, Tur 1 C2):** − gelen ara ürün (VGO, VR, HSGO) import satırına pozitif hacim olarak işlenir; fiyatı import fiyat satırına girer. Üç alt soru:
+  1. Fiyat ithal fiyatı mı (Crude & Import Prices, Imports bölümü), ara ürünün kendi fiyatı mı (Product Prices, ara ürün bölümü)? Eski projede "ithal fiyatı" onaylanmıştı; Kasım Planned'da eksi ara ürün yok, doğrulanamadı.
+  2. LP'nin Imports bölümünde VR satırı ve fiyatı yok; VR eksi gelirse hangi fiyat?
+  3. Imports'taki gerçek ithalat ("High Sulphur Gasoil 0.1%", "Vacuum Gasoil") ile eksi ara ürün aynı ay gelirse ikisi aynı model import satırına düşer: hacim toplanır mı, tek fiyat hücresine hangi fiyat yazılır (ithal, ara ürün, iki hacimle ağırlıklı ortalama)?
 - **Fiyat kaynağı:** Bütün fiyatlar sabit değer, dosyada dış bağlantı yok. Budget Calc'tan mı kopyalanıyor? Budget Calc tanıtılırken bakılacak.
 - **Haftalık sürümle ilişki:** Planned olmayan actual + forecast sürümü (`STAR_LP_<Ay>_2026_<a>_<p>`) ile haftalık `STAR <Ay> 2026 a__p.xlsx` aynı dosya mı? Haftalık dosya gelince bakılacak.
 
 ## Tanıtım tarihi
-- 10.11.2026 (Akın-Weekly Star'da). Bu repoya devir: 20.11.2026. Dosyayla doğrulama: 20.11.2026 (Kasım 2026 Planned). Tur 1 panel cevapları: 23.11.2026.
+- 10.11.2026 (Akın-Weekly Star'da). Bu repoya devir: 20.11.2026. Dosyayla doğrulama: 20.11.2026 (Kasım 2026 Planned). Tur 1 panel cevapları: 23.11.2026 ve 25.11.2026.

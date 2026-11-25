@@ -124,6 +124,14 @@ Cevaplar Tur 1 panelinden (https://claude.ai/artifact/7xovmnq3pPtxe7dxbB8Wm5); k
 - **Hedge tutarlarının Results'taki yeri (B5):** "Crude Roll + Inventory Hedge" COGS'a, "Product Inventory Hedge" gelire eklenir. Kasım 2026 Planned Results'ın tersini yapması bulgudur; sonraki ay gözlemlenir.
 - **Çıktı biçimi (C5):** Çıktı Financial Results ile aynı sayfa düzeninde verilir.
 
+### Tur 1 panel cevapları – 2. oturum (25.11.2026)
+Cevaplar Tur 1 panelinden (2. oturum, STAR ekibiyle). Kart bilgileri ilgili kartlara işlendi; burada yalnız karar niteliğindekiler.
+- **Yalnız çalışılan ay (E1):** Girdilerden yalnız çalışılan ayın (EBITDA'yı ilgilendiren ayın) rakamı alınır; geçmiş ve gelecek aylara bakılmaz. Stok gibi konularda geçmiş veriler kullanılır.
+- **Hedge Plan çıktı olacak (E4):** Hedge Plan, Claude'un girdilerden hazırlayacağı bir çıktı olacak. Bunun için gereken girdiler (Open Trades, LP, Daily Prices – güncel fiyatla ilerlenirse, Budget Calc ve diğerleri) öğrenilir. Verilen girdi güncel kabul edilir; Claude yine de kendisi teyit eder.
+- **Model ile girdi arasındaki güncelleme farkı (E5):** Planned modelin bir girdiden sakladığı değer girdinin şimdiki değerinden farklıysa (bağlantı güncellenmemiş), bu şimdilik dikkate alınmaz; hesap girdilerden yapılır.
+- **Birim hataları (B1):** Birim ya da başlık hatası her görüldüğünde uyarı olarak bildirilir.
+- **Çıktıda iki katman (E11):** Yönetici (1) model çıktısını ve (2) manuel düzeltmeleri ayrı görmek ister. Financial Results'taki manuel etkiler ayrı değerlendirilir. Results'ın kendi CHECK satırının sıfır olmaması normaldir (model dışı etkiler).
+
 ## Açık konular
 
 - **Birleşme (20.11.2026):** Bu kol `star-weekly` ile birleşecek; biçimi o gün kararlaştırılır.
@@ -138,8 +146,12 @@ Cevaplar Tur 1 panelinden (https://claude.ai/artifact/7xovmnq3pPtxe7dxbB8Wm5); k
 - **Open Trades (20.11.2026):** `star-weekly`'ye göre ayrı bir dosya (`STAR Open Trades_<ggaayy>`); motor hedge crack ve çeyrek hacmini buradan okuyor. Hedge Plan'daki tarihli işlem sayfalarının bu dosyanın kopyası olup olmadığı hücre bazında teyit edilmedi. Girdi listesine "dosya bekleniyor" durumuyla eklendi (A19); dosya gelince tanıtılır.
 - **Açılış stoğunda Eylül sonu satırları (20.11.2026):** Planned model açılış stoğunu ağırlıkla Ekim sonu `3_Stoklar` dosyasından alıyor, iki satırı Eylül sonu dosyasından okuyor (`GIRDI_LISTESI.md` A6–A7). Satırlar ve hücreler stok kartı yazılırken çıkarılır, STAR'a sorulur ve `star-weekly`'ye iletilir.
 - **Tur 1 panelinde açık kalanlar (23.11.2026):** Birimler (B1), negatif ara ürünün fiyatı (C2), forecast crack'in kaynağı (A3) ve Hedge Plan soruları (E1–E11). Panelin 2. oturumunda STAR ekibiyle.
+  - yerine geçer: 25.11.2026 – 2. oturumdan sonra açık kalanlar: negatif ara ürünün fiyatı (C2, üç alt soru; LP kartı) ve forecast crack'in kaynağı (A3b; Hedge Plan kartı).
 - **Ara dönem örneği (23.11.2026):** Kullanıcı September 11+19 dosyasını gönderecek (Product Prices sayfası). Ara dönemde fiyat, crack ve Brent ağırlıklandırması onunla doğrulanır (haftalık girdi kartı).
+- **Manuel etkilerin verisi (25.11.2026, E11):** Financial Results'a elle eklenen etkilerin (ör. Upside/Downside Excel'i) bu kola hangi biçimde verileceği konuşulacak. Kullanıcı, Upside/Downside'ın modele eklenmesinin değerlendirilmesini istedi; değerlendirme sunulacak.
+- **Hedge Plan çıktısının biçimi (25.11.2026, E9):** Summary dahil ne gösterileceği, önceki versiyonla kıyasın yeri; `star-weekly`'deki hedge plan sayfasıyla birlikte karar verilecek.
 - **`star-weekly` ile eşleme (23.11.2026):** Tur 1 cevaplarından üçü diğer kolu da ilgilendiriyor: çıktı biçimi (C5), 0+30 ile Planned'ın ayrı versiyonlar olması (A4; "Amaç ve yön" bölümlerindeki "Planned (0+30)" ifadeleri ortak kayıtta düzeltilecek) ve hedge tutarlarının Results'taki yeri (B5). `star-karar-isleme` adım 4 ile iletilecek.
+  - 25.11.2026 ek: Hedge Plan'ın çıktı olması (E4), çıktıda iki katman (E11) ve Hedge Plan çıktısının biçimi (E9) de iletilecek.
 - **Birleşmede aktarılacaklar (20.11.2026):** Yöntem/model/forecast mantığına ait olup bu kola ait olmayan bilgiler burada listelenir.
   - *Kaynak: Akın-Weekly Star devir paketi (20.11.2026; kayıtların son hali 11.11.2026). Ayrıntı pakette; buraya yalnız başlık yazıldı.*
   - **Engine hedefi:** Nihai hedefte yalnız girdiler verilir; ana model (.xlsb) ve Financial Results verilmez, aynı sonuç bağımsız engine ile üretilir. Öğrenme aşamasında model ve Results yalnız doğrulama referansıdır (eski K16; eski K05 "model gerçeğin kaynağı"nın yerine geçmiş). Production girdi paketinde modelin olup olmayacağı (D-02) cevapsız.

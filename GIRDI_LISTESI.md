@@ -9,7 +9,7 @@ Kasım 2026 Planned zincirine giren bütün dosyaların listesi. Tanıtım sıra
 | # | Dosya | Okuyan | Durum | Kart |
 |---|---|---|---|---|
 | A1 | `STAR Budget (2026) - Forecast (03.11.2026)` (LP model) | Model | ✅ Tur 1 | `STAR_Budget_Forecast.md` |
-| A2 | `Hedge Plan 2026 10 2  Forecast_November Planned` | Model, Results | ✅ Tur 1 | `Hedge_Plan.md` |
+| A2 | `Hedge Plan 2026 10 2  Forecast_November Planned` | Model, Results | ✅ Tur 1 · ileride Claude'un girdilerden hazırlayacağı çıktı (KARAR_GUNLUGU 25.11.2026) | `Hedge_Plan.md` |
 | A3 | `2026 Budget Calc_16.10.2026` | Hedge Plan, Results | 🔍 Tur 2 | `Budget_Calc.md` (devirden) |
 | A4 | `2026 Budget Calc_17.09.2026` (eski sürüm) | Hedge Plan (Jet dönüşüm faktörü; Ekim/Aralık) | 🔍 Tur 2 | `Budget_Calc.md` |
 | A5 | `PETKİM&STAR Gas Power Prices_10_2` | Model | 🔍 Tur 2 | – |

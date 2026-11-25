@@ -5,11 +5,10 @@
 - Doğrulanan sürüm: Kasım 2026 Planned (10+2 aylık baz).
 
 ## Kaynak
-- Finans ekibinin kendi sürecinden geçer (ULSD/Jet hedge hesabı ve Summary). İç süreç adımı olarak ele alınır.
-- Ticari Risk'in rolü: bkz. Açık sorular.
+- Ticaret ekibi hazırlıyor. (Önceki kartta "finans ekibinin kendi süreci" yazıyordu; 25.11.2026'da düzeltildi.)
 
 ## Sıklık
-- Teyitsiz (bkz. Açık sorular).
+- Haftalık.
 
 ## Yapı
 - Görünür sayfalar: **Summary**, **ULSD_Hedge Calculation**, **Jet_Hedge Calculation** ve son iki tarihli işlem sayfası (adı `ggaayyyy`).
@@ -18,34 +17,35 @@
 - Summary'de aylık hedge tutarları, önceki versiyon sütunu ve fark sütunu var.
 
 ## Anahtar alanlar ve diğer dosyalarla eşleşmesi
-- Dosyanın dayandığı girdiler: bkz. Açık sorular.
+- Dayandığı girdiler (Kasım 2026 Planned dosyasının bağlantılarından; ayrıntıları ayrıca konuşulacak):
+  - LP model: ULSD ve Jet efektif fiyatları hedgesiz fiyat olarak.
+  - STAR EBITDA Crack Margin Effect: forecast crack olarak "güncel crack" (Daily Prices and Ratios dosyasının son 5 kotasyonunun ortalaması).
+  - Budget Calc: CIF-FOB farkı ve dönüşüm faktörü. Güncel sürüm kullanılmalı.
+  - Tarihli işlem sayfaları (olası kaynağı Open Trades): hedge crack, hedge miktarı, işlem MTM'leri.
+  - Ana model: kanal hacimleri. Girdilerden çalışırken hacimler LP'den alınır.
 
 ## Forecast'taki rolü
-- Ana model ULSD Domestic-1–4 ile Jet Domestic-1, Domestic-2 ve Export'un ağırlıklı fiyatını buradan alır.
-- LP'nin ULSD ve Jet efektif fiyatları buraya hedgesiz fiyat olarak gelir.
+- **Hedef:** Hedge Plan, Claude'un girdilerden hazırlayacağı bir çıktı olacak. Bunun için gereken girdiler (Open Trades, LP, Daily Prices – güncel fiyatla ilerlenirse, Budget Calc ve diğerleri) öğrenilir. Verilen girdi güncel kabul edilir; Claude yine de kendisi teyit eder.
+- Yalnız çalışılan ayın rakamı kullanılır; geçmiş ve gelecek aylara bakılmaz.
+- Ana model ULSD Domestic-1–4 ile Jet Domestic-1, Domestic-2 ve Export'un ağırlıklı fiyatını buradan alır. Hesap girdilerden yapılır; hedgesiz fiyatın tabanı LP'deki fiyattır.
+- **Crude Roll + Inventory Hedge ve Product Inventory Hedge:** İşlemlerin buy ve sell ayakları vardır; satış (sell) ayağı çalışılan aya düşen işlem çiftleri alınır ve iki ayağın toplam etkisi finansala yansıtılır. Kasım 2026 Planned örneğinde güncel tarihli sayfadaki ilgili satırlar (crude roll için dört satır, product için iki satır) Summary'nin aldığı satırlarla aynı.
 - Kural: Summary'deki "Crude Roll + Inventory Hedge" tutarı COGS'a, "Product Inventory Hedge" tutarı gelire eklenir. Kasım 2026 Planned Financial Results bunun tersini yapıyor (crude roll gelire, product hedge COGS'a); bu fark bulgu olarak tutulur ve sonraki ay gözlemlenir. Crack hedge etkisi ayrıca eklenmez, fiyatın içindedir.
 - Summary sayfası çıktı olarak verilir (KARAR_GUNLUGU "Birleşmede aktarılacaklar").
-- Dosya kanal hacimlerini ana modelden okuyor. Girdilerden çalışırken hacimler LP model'den alınır.
 - Hücre düzeyindeki model eşlemesi ve hedge hesabı bu kartta yok (bkz. KARAR_GUNLUGU "Birleşmede aktarılacaklar").
 
 ## Bilinen tuzaklar / temizlik adımları
 - Genel girdi kontrol kuralları geçerli (KARAR_GUNLUGU "Girdi kontrol kuralları").
+- ULSD Export (`ULSD_Hedge Calculation`!M47) ve Jet Domestic-3 (`Jet_Hedge Calculation`!M45) hedgesiz fiyat hücrelerine LP'den bağlantı yerine elle 0 yazılmış; hacim gelirse bu kanallar 0 fiyatla hesaplanır.
+- Bulgu: Jet hesabındaki "ton başına fiyat artışı" dönüşüm faktörünü eski Budget Calc'tan (9+3) alıyor; güncel Budget Calc olmalı (ULSD aynı hesapta güncelini kullanıyor).
+- Ana modelin sakladığı ULSD/Jet fiyatları bu dosyadaki değerlerle aynı değil (model, Hedge Plan'ın Budget Calc crack'iyle hesaplandığı haliyle kaydedilmiş; dosya sonra güncel crack'e geçmiş). Bu bağlantı güncelleme farkı şimdilik dikkate alınmaz; hesap girdilerden yapılır.
+- Summary'deki önceki versiyon sütunu hesapta kullanılmaz; yalnız kıyas için getirilir.
+- Financial Results'ın "model harici etkiler" dökümündeki Kasım "Hedge_1" ve "Hedge_2" satırları eski 9+3 Hedge Plan'ı okuyor; döküm verisi eski kalmış olabilir, güncellenmeli (bulgu).
 
 ## Açık sorular
 *(STAR) = STAR ekibiyle cevaplanacak.*
-- **Ticari Risk'in rolü (STAR):** Dosyada "TİCARİ RİSK'den GELEN HESAPLAMA" bölümü ve karşı taraf / MTM içeren tarihli işlem sayfaları var. İşlem sayfaları Ticari Risk'ten mi geliyor?
-- **Sıklık (STAR):** Kasım Planned dosyasında iki güncel tarihli işlem sayfası var. Dosya haftalık mı, Planned başında ayda bir mi geliyor?
-- **Forecast crack'in kaynağı (STAR, 2. oturum):** STAR notu "aylıkta crack margin Budget Calc'tan gelir, ULSD_Hedge Calculation'a gider" onaylandı. Dosyanın formülü ise şöyle: Kasım forecast crack = STAR EBITDA Crack Margin Effect'teki "güncel crack" (Daily Prices and Ratios dosyasının son 5 kotasyonunun ortalaması) + Budget Calc'tan yalnız CIF-FOB farkı; dönüşüm faktörü de Budget Calc'tan. İkisi nasıl bağdaşıyor? (Tur 1 A3)
-- **Results'ta eski Hedge Plan (STAR, bulgu):** Financial Results PL'deki "Model harici etkiler" dökümünde Kasım "Hedge_1" ve "Hedge_2" satırları eski 9+3 Hedge Plan'ı okuyor; ana gelir/COGS satırları güncel Hedge Plan'ı kullanıyor. Results'ın kendi CHECK satırı bu yüzden de sıfır değil.
-- **Dayandığı girdiler (STAR):** Bağlantılardan görülen: LP model efektif fiyatı (hedgesiz fiyat), STAR EBITDA Crack Margin Effect (forecast crack), Budget Calc (CIF-FOB farkı ve dönüşüm faktörü), tarihli işlem sayfası (hedge crack ve miktar), ana model (kanal hacimleri). Doğru mu?
-- **Hangi tarihli işlem sayfası esas (STAR):** Hedge crack ve miktar daha eski bir tarihli sayfadan okunuyor; dosyada daha yeni iki sayfa var (bu ay değerler aynı). En güncel sayfa mı, analistin seçtiği mi? (eski H2)
-- **Open Trades ile ilişki (STAR):** `star-weekly` kolu hedge crack ve çeyrek hacmini ayrı bir dosyadan (`STAR Open Trades_<ggaayy>`, tarih adlı sayfa) okuyor. Bu karttaki tarihli işlem sayfaları o dosyanın kopyası mı, bağlantısı mı? Hücre bazında teyit edilmedi; dosya gelince bakılacak (GIRDI_LISTESI A19).
-- **Model ile dosya farkı (STAR):** Ana modeldeki ULSD/Jet fiyatı bu dosyadaki ağırlıklı fiyattan yüksek (ürün başına her kanalda aynı fark); model güncel hedge dosyasıyla yeniden hesaplanmamış görünüyor. Financial Results ise hedge tutarlarını güncel dosyadan almış. Girdiden çalışırken esas hangisi? (eski H4)
-- **Crude roll kapsamı (STAR):** Summary'deki Kasım "Crude Roll + Inventory Hedge" tutarı tarihli sayfadaki işlemlerin bir kısmını topluyor; sonradan eklenen iki işlem dahil değil. Summary'de "Roll olan işlemleri almamak gerekebilir" notu var. Hangi işlemler girer, yeni işlem otomatik dahil olur mu, roll'lar Brent fiyatında zaten var mı (çift sayım)? (eski H3)
-- **Jet dönüşüm faktörü (STAR):** Jet hesabındaki "ton başına fiyat artışı" dönüşüm faktörünü eski Budget Calc'tan (9+3) alıyor; ULSD aynı hesapta güncel Budget Calc'ı (10+2) kullanıyor. Hata mı?
-- **Elle yazılmış 0 fiyat (STAR):** ULSD Export (`ULSD_Hedge Calculation`!M47) ve Jet Domestic-3 (`Jet_Hedge Calculation`!M45) hedgesiz fiyat hücrelerine LP'den bağlantı yerine elle 0 yazılmış. Kasım'da hacim yok; hacim gelirse bu kanallar 0 fiyatla hesaplanır. Tuzak olarak yazılmalı mı?
-- **Önceki versiyonla karşılaştırma (STAR):** Summary'deki önceki versiyon (elle yazılmış) ve fark sütunları her koşuda beklenen çıktının parçası mı? (eski H8)
-- **Financial Results'ta artık hücre (STAR, bulgu):** Results PL sayfasında tablo dışında kalan bir hücre (AE1) bu dosyanın Kasım "Product Inventory Hedge" tutarını okuyor; başka yere bağlı görünmüyor. Amaçlı mı?
+- **Forecast crack'in kaynağı (STAR, Tur 1 A3/A3b):** STAR notu "aylıkta crack margin Budget Calc'tan gelir, ULSD_Hedge Calculation'a gider" onaylandı. Dosyada ise Kasım forecast crack = güncel crack (Crack Margin Effect; Daily Prices'ın son 5 kotasyonu) + Budget Calc CIF-FOB farkı. Ana modelin sakladığı ULSD/Jet fiyatları ise forecast crack = Budget Calc crack'i + CIF-FOB farkı haliyle birebir tutuyor. Financial Results güncel crack ile Budget Calc crack'i arasındaki farkı Crack Margin Effect üzerinden gelire ayrıca ekliyor. Hedge Plan'ın forecast crack'i hangisi olmalı; güncel crack hem fiyata hem Crack Margin Effect'e girerse etki iki kez sayılır mı?
+- **Hedge Plan'ı hazırlamak için gereken girdiler:** Tam liste ve her birinin hangi hücreyi beslediği; Open Trades dosyası gelince tarihli işlem sayfalarıyla karşılaştırılacak (GIRDI_LISTESI A19).
+- **Hedge Plan çıktısının biçimi:** Summary dahil hangi tablo ve sütunlar gösterilecek; önceki versiyonla kıyas gösterilecek mi? `star-weekly` kolundaki hedge plan sayfasıyla birlikte karar verilecek.
 
 ## Tanıtım tarihi
-- 11.11.2026 (Akın-Weekly Star'da). Bu repoya devir: 20.11.2026. Dosyayla doğrulama: 20.11.2026 (Kasım 2026 Planned).
+- 11.11.2026 (Akın-Weekly Star'da). Bu repoya devir: 20.11.2026. Dosyayla doğrulama: 20.11.2026 (Kasım 2026 Planned). Tur 1 panel cevapları: 23.11.2026 ve 25.11.2026.
