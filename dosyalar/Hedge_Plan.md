@@ -43,7 +43,7 @@
 - **Model ile dosya farkı (STAR):** Ana modeldeki ULSD/Jet fiyatı bu dosyadaki ağırlıklı fiyattan yüksek (ürün başına her kanalda aynı fark); model güncel hedge dosyasıyla yeniden hesaplanmamış görünüyor. Financial Results ise hedge tutarlarını güncel dosyadan almış. Girdiden çalışırken esas hangisi? (eski H4)
 - **Crude roll kapsamı (STAR):** Summary'deki Kasım "Crude Roll + Inventory Hedge" tutarı tarihli sayfadaki işlemlerin bir kısmını topluyor; sonradan eklenen iki işlem dahil değil. Summary'de "Roll olan işlemleri almamak gerekebilir" notu var. Hangi işlemler girer, yeni işlem otomatik dahil olur mu, roll'lar Brent fiyatında zaten var mı (çift sayım)? (eski H3)
 - **Jet dönüşüm faktörü (STAR):** Jet hesabındaki "ton başına fiyat artışı" dönüşüm faktörünü eski Budget Calc'tan (9+3) alıyor; ULSD aynı hesapta güncel Budget Calc'ı (10+2) kullanıyor. Hata mı?
-- **Elle yazılmış fiyatlar (STAR):** ULSD Export ve Jet Domestic-3'ün hedgesiz fiyatı LP'ye bağlı değil, hücreye elle yazılmış (Kasım'da ikisinin hacmi yok). Tuzak olarak yazılmalı mı?
+- **Elle yazılmış 0 fiyat (STAR):** ULSD Export (`ULSD_Hedge Calculation`!M47) ve Jet Domestic-3 (`Jet_Hedge Calculation`!M45) hedgesiz fiyat hücrelerine LP'den bağlantı yerine elle 0 yazılmış. Kasım'da hacim yok; hacim gelirse bu kanallar 0 fiyatla hesaplanır. Tuzak olarak yazılmalı mı?
 - **Önceki versiyonla karşılaştırma (STAR):** Summary'deki önceki versiyon (elle yazılmış) ve fark sütunları her koşuda beklenen çıktının parçası mı? (eski H8)
 - **Financial Results'ta artık hücre (STAR, bulgu):** Results PL sayfasında tablo dışında kalan bir hücre (AE1) bu dosyanın Kasım "Product Inventory Hedge" tutarını okuyor; başka yere bağlı görünmüyor. Amaçlı mı?
 

@@ -51,14 +51,13 @@
 - Modelde doğalgaz satırları "Natural Gas" (LP'deki Process) ve "Natural gas" (LP'deki Fuel) yalnız büyük/küçük harfle ayrılır; ayrım LP'deki parantezden yapılır.
 - Production Plan Q sütunundaki kanal oranı formülleri tek bir aya sabit yazılmış; ay değişince kendiliğinden kaymaz. Oran zaten her zaman hesaplanır.
 - Ural (Spot)'un assay'i bilinçli olarak KEBCO'nunkiyle aynıdır.
-- Product Prices'taki efektif fiyat hesabına müdahale edilmez; ürün satırındaki değer alınır.
+- Product Prices'ta fiyat, ürün satırlarından (ör. ULSD ve Jet satırları) olduğu gibi alınır. Altındaki yoğunluk düzeltmeli efektif fiyat bloğu LP'nin kendi iç hesabıdır; bu kolda hesaplanmaz, kural konmaz. Orada mantıksız bir şey görülürse yalnız bilgi olarak bildirilir. Ürün satırında fiyat boş ama hacim varsa genel kural uygulanır (hacim var, fiyat yok = hata).
 - Bulgu: Kasım 2026 Planned modelinde pozitif High Sulphur Gasoil ve Vacuum Residue ara ürün satırlarına bağlanmamış.
 
 ## Açık sorular
 *(STAR) = STAR ekibiyle cevaplanacak.*
 - **Birimler (STAR):** Ham petrol fiyatı $/bbl, ithal fiyatı $/ton, Production Plan ton/ay, elektrik MWh/ay, ürün fiyatı $/ton olarak okundu. Product Prices başlığında "(ton/month)" yazıyor, değerler $/ton görünüyor. (Tur 1 B1: açık)
 - **Negatif ara ürünün fiyatı (STAR):** − gelen ara ürün import satırına pozitif hacim olarak işlenir; fiyatı ithal fiyatı mı (Crude & Import Prices), ara ürün fiyatı mı (Product Prices)? Negatif HSGO, Imports'taki "HSGO 0.1%" ile aynı model satırına düşer. (Tur 1 C2: açık)
-- **Yoğunluğu boş efektif fiyat (STAR):** Efektif fiyat hücreleri satış fiyatı × (referans yoğunluk / üretilen yoğunluk) formülüyle hesaplanıyor. Yoğunluk boş olunca hücre boş kalıyor (Kasım'da Jet Domestic-3, ULSD Export, benzin); Hedge Plan bu hücreleri okuyor. Boş gelirse ne yapılır? (Tur 1 D5'in yeniden sorulan hali)
 - **Fiyat kaynağı:** Bütün fiyatlar sabit değer, dosyada dış bağlantı yok. Budget Calc'tan mı kopyalanıyor? Budget Calc tanıtılırken bakılacak.
 - **Haftalık sürümle ilişki:** Planned olmayan actual + forecast sürümü (`STAR_LP_<Ay>_2026_<a>_<p>`) ile haftalık `STAR <Ay> 2026 a__p.xlsx` aynı dosya mı? Haftalık dosya gelince bakılacak.
 
