@@ -29,6 +29,7 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 ### Tanıtım turu (20.11.2026)
 - Devirden gelen kartlar ve açık sorular veriyle baştan kesinleştirilir. Tanıtılmış 3 girdinin (LP model, Hedge Plan, Budget Calc) kartları dosyayla doğrulanır: yazılı her şey ve açık sorular yeniden sorulur, onaylanan kalır, reddedilen düzeltilir.
 - Dönem: Kasım 2026 Planned (0+30). Turdaki bütün girdiler bu dönemden olur.
+  - yerine geçer: 23.11.2026 – dönem Kasım 2026 Planned; 0+30 ayrı versiyondur (bkz. "Tur 1 panel cevapları").
 - Ana model ve Financial Results ilk girdiyle bir kez gelir; yalnız girdinin rolünü doğrulamak için kullanılır. Hücre eşlemesi yine "Birleşmede aktarılacaklar"a gider.
   - yerine geçer: 20.11.2026 – burada kastedilen Planned model ve Planned Results; aylık model ve aylık Results girdi olarak ayrıca ele alınır.
 - Sıra: LP model → Hedge Plan → Budget Calc → STAR EBITDA Crack Margin Effect.
@@ -39,6 +40,7 @@ Yürürlükteki kurallar ve açık konular. Eski kural silinmez; değiştiğinde
 
 ### Kapsam (20.11.2026)
 - Şu an Planned (0+30) girdileri tanıtılıyor.
+  - yerine geçer: 23.11.2026 – şu an Kasım 2026 Planned girdileri tanıtılıyor; 0+30 ayrı bir versiyondur (bkz. "Tur 1 panel cevapları").
 - Nihai hedef: girdiler verilir, çıktı üretilir. Süreç 1–2 ay sürer: girdiler tek tek tanıtılır, açık sorular STAR ekibiyle cevaplanır, tümden gelim kolu (`star-weekly`) ile birleşilir.
 
 ### Amaç ve yön (20.11.2026)
@@ -95,6 +97,7 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
 
 **Tanıma ve dönem**
 - Dosya adından değil içeriğinden tanınır; ad standarttan farklıysa durulmaz, uyarılır (eski R09).
+  - yerine geçer: 23.11.2026 – dosyalar ve sayfalar adından değil içeriğinden tanınır; ad standarttan farklıysa durulmaz, uyarılır.
 - Aynı adlı girdinin iki farklı kopyası/konumu kullanılıyorsa hata sayılır (eski R16).
 - Dosyaların hepsi aynı versiyona (Planned / a+p haftası) ait değilse önce bu söylenir.
 - Yüklenen dosya değiştirilmez, kopyasında çalışılır. Düzeltmeyi kullanıcı yapar; Claude hücre bazında söyler.
@@ -103,6 +106,8 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
 - Tüm satırlar, boş olanlar dahil, gruplu takip edilir; veri sonradan gelebilir (eski R02).
 - Satırlar ada göre eşlenir; veri gelince otomatik kullanılır, karşılığı yoksa uyarı verilir (eski R08).
 - Yeni kalem kullanıcıya sorulmadan eklenmez (eski R15).
+  - yerine geçer: 23.11.2026 – yeni kalem önce kullanıcıya sorulur; onaylanınca modeldeki yöntemle eklenir (yöntem "Birleşmede aktarılacaklar"da).
+- Her satır her ay şu durumlardan birine konur: dolu + karşılığı var · dolu + karşılığı yok (uyarı) · boş + karşılığı var · boş + karşılığı yok · yeni satır (sorulur).
 - Girdide dolu olup forecast'a girmeyen her kalem için uyarı verilir (eski R05).
 
 **Değer kontrolü**
@@ -111,6 +116,13 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
 - Birim uyuşmazlığında sessiz dönüşüm yapılmaz, uyarı verilir (eski R14).
 - Elle yazılmış değer ya da başka ayın dosyasına giden bağlantı görülürse uyarılır (eski R07).
 - Her rakam dosya + sayfa + hücreye izlenebilir olmalı; kaynakta olmayan rakam üretilmez.
+
+### Tur 1 panel cevapları (23.11.2026)
+Cevaplar Tur 1 panelinden (https://claude.ai/artifact/7xovmnq3pPtxe7dxbB8Wm5); kullanıcı STAR ekibiyle cevapladı. Kart bilgileri ilgili kartlara işlendi; burada yalnız karar niteliğindekiler. Hedge Plan soruları 2. oturuma kaldı.
+- **Hacim ve fiyat eksikliği (A1):** Mevcut ayrım kalır: hacim var fiyat yok = hata; fiyat var hacim yok = referans fiyat, uyarı. STAR notundaki "iki yön de veri girişi hatası" ifadesi uygulanmaz.
+- **Versiyon adları (A4):** 0+30 ile Planned ayrı versiyonlardır; ikisi de aynı biçimdeki LP model dosyasını kullanır. Ayın son haftasında bir sonraki ay sunulur, adı 0+30'dur (ör. Kasım'ın son haftasında Aralık 0+30). Ertesi hafta aylık forecast verileriyle çalışılır, adı Planned'dır. İkisinde de gerçekleşen yoktur, fiyat doğrudan alınır.
+- **Hedge tutarlarının Results'taki yeri (B5):** "Crude Roll + Inventory Hedge" COGS'a, "Product Inventory Hedge" gelire eklenir. Kasım 2026 Planned Results'ın tersini yapması bulgudur; sonraki ay gözlemlenir.
+- **Çıktı biçimi (C5):** Çıktı Financial Results ile aynı sayfa düzeninde verilir.
 
 ## Açık konular
 
@@ -125,6 +137,9 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
 - **CAPEX sapması (20.11.2026):** `star-weekly`'ye göre sapma okuma yönteminde değil, hangi Capex Input sürümünün ve düzeltmesinin kullanıldığında; 9+3 aylık model 6+6 Capex Input'a bağlı. Bu kolun girdi listesine göre Planned model `Capex Input_9+3` dosyasını okuyor (C6; hücre teyit edilmedi). Aşama 3'e ait; açık.
 - **Open Trades (20.11.2026):** `star-weekly`'ye göre ayrı bir dosya (`STAR Open Trades_<ggaayy>`); motor hedge crack ve çeyrek hacmini buradan okuyor. Hedge Plan'daki tarihli işlem sayfalarının bu dosyanın kopyası olup olmadığı hücre bazında teyit edilmedi. Girdi listesine "dosya bekleniyor" durumuyla eklendi (A19); dosya gelince tanıtılır.
 - **Açılış stoğunda Eylül sonu satırları (20.11.2026):** Planned model açılış stoğunu ağırlıkla Ekim sonu `3_Stoklar` dosyasından alıyor, iki satırı Eylül sonu dosyasından okuyor (`GIRDI_LISTESI.md` A6–A7). Satırlar ve hücreler stok kartı yazılırken çıkarılır, STAR'a sorulur ve `star-weekly`'ye iletilir.
+- **Tur 1 panelinde açık kalanlar (23.11.2026):** Birimler (B1), negatif ara ürünün fiyatı (C2), yoğunluğu boş efektif fiyat (D5'in yeniden sorulan hali), forecast crack'in kaynağı (A3) ve Hedge Plan soruları (E1–E11). Panelin 2. oturumunda STAR ekibiyle.
+- **Ara dönem örneği (23.11.2026):** Kullanıcı September 11+19 dosyasını gönderecek (Product Prices sayfası). Ara dönemde fiyat, crack ve Brent ağırlıklandırması onunla doğrulanır (haftalık girdi kartı).
+- **`star-weekly` ile eşleme (23.11.2026):** Tur 1 cevaplarından üçü diğer kolu da ilgilendiriyor: çıktı biçimi (C5), 0+30 ile Planned'ın ayrı versiyonlar olması (A4; "Amaç ve yön" bölümlerindeki "Planned (0+30)" ifadeleri ortak kayıtta düzeltilecek) ve hedge tutarlarının Results'taki yeri (B5). `star-karar-isleme` adım 4 ile iletilecek.
 - **Birleşmede aktarılacaklar (20.11.2026):** Yöntem/model/forecast mantığına ait olup bu kola ait olmayan bilgiler burada listelenir.
   - *Kaynak: Akın-Weekly Star devir paketi (20.11.2026; kayıtların son hali 11.11.2026). Ayrıntı pakette; buraya yalnız başlık yazıldı.*
   - **Engine hedefi:** Nihai hedefte yalnız girdiler verilir; ana model (.xlsb) ve Financial Results verilmez, aynı sonuç bağımsız engine ile üretilir. Öğrenme aşamasında model ve Results yalnız doğrulama referansıdır (eski K16; eski K05 "model gerçeğin kaynağı"nın yerine geçmiş). Production girdi paketinde modelin olup olmayacağı (D-02) cevapsız.
@@ -144,3 +159,5 @@ Tüm girdi dosyalarına uyar. Akın-Weekly Star'da onaylanan kuralların genelle
   - **Girdi → model hücre eşlemesi:** eski SUREC_MAPPING_0_30 §1–§14 (LP ve Hedge Plan'ın model hücrelerine akışı) ve negatif ara ürünün ithal satırına pozitif hacim olarak gitmesi (eski R11). Hangi alanın kullanılıp hangisinin kullanılmadığına dair eski R01, R03, R04, R10, R12 kuralları ilgili dosya kartlarında.
   - **Hedge hesabı:** hedge'li tonajın fiyatı, ağırlıklı fiyat ve hedge etkisi formülü (eski H6, onaysız); model ile Results'ın aynı hedge fiyatını görüp görmediği ve "aynı sonuç" referansı (eski H4 / A06, onaysız).
     - yerine geçer: 20.11.2026 – hedef değer ve "aynı sonuç" referansı için bkz. "Amaç ve yön – netleştirme".
+  - **Yeni kalem ekleme yöntemi (23.11.2026):** Modelde karşılığı olmayan kalem Master Data sayfasına eklenip ilgili sayfaya (ör. M_I) akıtılır.
+  - **Hedge Summary çıktı olarak (23.11.2026):** Hedge Plan'ın Summary sayfası çıktı olarak verilir.

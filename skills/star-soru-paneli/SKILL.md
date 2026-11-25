@@ -55,3 +55,5 @@ Bir turun soruları toplandığında; birden çok açık konu aynı anda karar b
 | 20.11.2026 | Kullanıcı seçeneklere ek olarak kendi cevabını yazabilmek istedi | Her soruda "Diğer" ve not alanı olsun |
 | 20.11.2026 | İkinci panel ilkinin görsel diliyle kuruldu; kullanıcı yeniden alışmak zorunda kalmadı | Yeni panelde önceki panelin yapısını kullan |
 | 20.11.2026 | Panel kaydının boş olduğu okundu ama gerçek bir cevabın kaydedildiği denenmedi; bunu kullanıcıya söylemek gerekti | Neyi denediğini ve neyi deneyemediğini teslimde tek cümleyle söyle |
+| 23.11.2026 | Kullanıcı seçeneklerin hiçbirine uymayan cevabı yoruma yazdı; sayaç saymadığı için "Açık kalsın"ı seçmek üzereydi | Her soruya "Seçeneklerden biri değil, yorumda yazdım" seçeneği koy; böyle cevapta yalnız yorumu esas al |
+| 23.11.2026 | Paneli ikinci oturuma taşırken cevaplananlar kapalı listeye alındı, "Açık kalsın" seçilenler açık sayıldı, anlaşılmayan sorular yeni kimlikle yeniden soruldu (ör. D5 → D5b) | Oturumlar arası panelde aynı düzeni kullan; eski cevabın üzerine yazma, yeniden sorulan soruya yeni kimlik ver |

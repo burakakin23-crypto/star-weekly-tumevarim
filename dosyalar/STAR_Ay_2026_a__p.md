@@ -17,7 +17,12 @@
 - Teyitli bilgi yok (bkz. Açık sorular).
 
 ## Forecast'taki rolü
-- Teyitli bilgi yok. Hücre düzeyindeki model eşlemesi bu kartta yok (bkz. KARAR_GUNLUGU "Birleşmede aktarılacaklar").
+- Kullanıcının anlattığı (23.11.2026; ara dönem dosyası tanıtılırken September 11+19 örneğiyle doğrulanacak):
+  - Miktar: gerçekleşen + plan toplamı.
+  - Fiyat: gerçekleşen ve plan fiyatlarının toplam miktarla ağırlıklandırılmış ortalaması.
+  - Crack margin (0+30 ve Planned dışındaki ara forecast'lerde): gerçekleşen ile forecast farklıysa her ürünün crack'i toplam ürün miktarıyla ağırlıklı ortalama alınarak hesaplanır.
+  - Brent: gerçekleşen ile forecast farklıysa gerçekleşen günler gerçekleşen değerle, kalan günler forecast'la ağırlıklandırılır.
+- Bunun dışında teyitli bilgi yok. Hücre düzeyindeki model eşlemesi bu kartta yok (bkz. KARAR_GUNLUGU "Birleşmede aktarılacaklar").
 
 ## Bilinen tuzaklar / temizlik adımları
 - Teyitli bilgi yok (bkz. Açık sorular).
