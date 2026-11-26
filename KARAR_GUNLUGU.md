@@ -132,6 +132,14 @@ Cevaplar Tur 1 panelinden (2. oturum, STAR ekibiyle). Kart bilgileri ilgili kart
 - **Birim hataları (B1):** Birim ya da başlık hatası her görüldüğünde uyarı olarak bildirilir.
 - **Çıktıda iki katman (E11):** Yönetici (1) model çıktısını ve (2) manuel düzeltmeleri ayrı görmek ister. Financial Results'taki manuel etkiler ayrı değerlendirilir. Results'ın kendi CHECK satırının sıfır olmaması normaldir (model dışı etkiler).
 
+### Nihai çıktı: yönetim sunumu (26.11.2026)
+Karar veren: Akın. Kaynak: kullanıcının paylaştığı `Management meeting template_10.11.2026.pptx` ve onu besleyen `PETKIM_STAR_Weekly_Forecast_Update_Presentation_Nov_Planned.xlsm` (dosyalar repoya girmez).
+- **Nihai hedef:** Proje sonunda girdilerden haftalık yönetim toplantısı sunumunun STAR bölümü üretilir. Yönetimin kullandığı ve anladığı format budur.
+- **Kapsam yalnız STAR:** Bu kol için sunumun STAR kısmı hedeftir: slayt 3 (STAR P&L ve operasyonel KPI), slayt 4 (ham petrol sepeti, tüketim, landing diferansiyeli), slayt 5 (satış miktarları, FOB crack) ve slayt 2'deki STAR satırları. Petkim, Petrol Ticaret, STAD, AR-GE ve R&P BU toplamı bu kolun hedefi değildir.
+- **Dashboard:** Dashboard'da bu sunumdaki STAR verileri mutlaka gösterilir.
+- **Girdi tanıtımı:** Girdiler tanıtılırken bu sunumdaki STAR sonuçlarına da ulaşılması hedeflenir.
+- **Yapı (bilgi):** Sunumun finans slaytları (1–9) sunum Excel'inden makroyla doldurulur (`HaritaOlustur`, `SunumaAktar`); Excel'deki tanımlı adlar sunumdaki şekil adlarıyla aynıdır (ör. `S03_T1`). 26.11.2026'da Excel'in kayıtlı değerleri sunumla karşılaştırıldı; farklar yalnız yuvarlama.
+
 ## Açık konular
 
 - **Birleşme (20.11.2026):** Bu kol `star-weekly` ile birleşecek; biçimi o gün kararlaştırılır.
@@ -152,6 +160,17 @@ Cevaplar Tur 1 panelinden (2. oturum, STAR ekibiyle). Kart bilgileri ilgili kart
 - **Hedge Plan çıktısının biçimi (25.11.2026, E9):** Summary dahil ne gösterileceği, önceki versiyonla kıyasın yeri; `star-weekly`'deki hedge plan sayfasıyla birlikte karar verilecek.
 - **`star-weekly` ile eşleme (23.11.2026):** Tur 1 cevaplarından üçü diğer kolu da ilgilendiriyor: çıktı biçimi (C5), 0+30 ile Planned'ın ayrı versiyonlar olması (A4; "Amaç ve yön" bölümlerindeki "Planned (0+30)" ifadeleri ortak kayıtta düzeltilecek) ve hedge tutarlarının Results'taki yeri (B5). `star-karar-isleme` adım 4 ile iletilecek.
   - 25.11.2026 ek: Hedge Plan'ın çıktı olması (E4), çıktıda iki katman (E11) ve Hedge Plan çıktısının biçimi (E9) de iletilecek.
+  - 26.11.2026 ek: Nihai çıktının yönetim sunumunun STAR bölümü olması ve dashboard'un bu verileri göstermesi de iletilecek (bkz. "Nihai çıktı: yönetim sunumu").
+- **Yönetim sunumu ile C5 (26.11.2026):** C5 "çıktı Financial Results ile aynı sayfa düzeninde" diyor; yeni karar nihai çıktıyı yönetim sunumu yapıyor. İkisi birlikte mi kalır (Results düzeni ara çıktı, sunum nihai çıktı), yoksa sunum C5'in yerine mi geçer? Cevap gelene kadar ikisi de yürürlükte.
+- **Sunumun STAR ara dosyası (26.11.2026):** Sunumdaki STAR rakamlarının çoğu ara bir dosyadan geliyor (`STAR EBITDA Performance Presentation_<Ay> Planned.xlsx`, Summary ve Margin Template sayfaları); Net refinery margin ve yıl sonu Brent Planned Results'tan, bütçe sütunu bütçe Results'ından. Ara dosya henüz görülmedi; girdi mi, hedef çıktı mı sayılacağı ve ne zaman tanıtılacağı açık.
+- **Slayt 2'deki makro göstergeler (26.11.2026):** Brent STAR'ı ilgilendiriyor; USD/TL, EUR/TL, EUR/USD ve TÜFE satırlarının (Economic Assumptions dosyasından) bu kolun hedefine girip girmediği açık.
+- **Sunum Excel'indeki bulgular (26.11.2026):** Kullanıcıya sorulacak; hiçbiri varsayımla kapatılmadı.
+  - Kullanım sayfası ve sayfa başı notları "tüm hücreler değerdir, formül yok" diyor; sayfalar 15 dış dosyaya formülle bağlı.
+  - STAR bütçesi iki kaynaktan okunuyor: slayt 2 bütçe Results'ından (PL sayfası), slayt 3 ara dosyadaki Margin Template'ten. Aynı rakam olduğu teyit edilmedi.
+  - Slayt 4 ham petrol tablosunda HSGO bütçe hücresi elle 0 yazılmış (`S04 STAR Ham Petrol`!D29).
+  - Slayt 2 yıl sonu STAR katkısı (`S02 RPBU EBITDA`!C27) 9+3 Results ile Planned v2 Results'ın karışımından hesaplanıyor.
+  - S05 slaytı sunumdan çıkmış: `S05_*` tanımlı adları #REF!; slayt 4'teki not hâlâ "landing diferansiyelleri sonraki sayfadan" diyor. Ayrıca `S01_H1` ve `S0x_SUB` adları #REF!.
+  - Birim: slayt 3 Net refinery margin kartının Excel etiketi "[USD]", sunumda USD/bbl.
 - **Birleşmede aktarılacaklar (20.11.2026):** Yöntem/model/forecast mantığına ait olup bu kola ait olmayan bilgiler burada listelenir.
   - *Kaynak: Akın-Weekly Star devir paketi (20.11.2026; kayıtların son hali 11.11.2026). Ayrıntı pakette; buraya yalnız başlık yazıldı.*
   - **Engine hedefi:** Nihai hedefte yalnız girdiler verilir; ana model (.xlsb) ve Financial Results verilmez, aynı sonuç bağımsız engine ile üretilir. Öğrenme aşamasında model ve Results yalnız doğrulama referansıdır (eski K16; eski K05 "model gerçeğin kaynağı"nın yerine geçmiş). Production girdi paketinde modelin olup olmayacağı (D-02) cevapsız.
@@ -173,3 +192,4 @@ Cevaplar Tur 1 panelinden (2. oturum, STAR ekibiyle). Kart bilgileri ilgili kart
     - yerine geçer: 20.11.2026 – hedef değer ve "aynı sonuç" referansı için bkz. "Amaç ve yön – netleştirme".
   - **Yeni kalem ekleme yöntemi (23.11.2026):** Modelde karşılığı olmayan kalem Master Data sayfasına eklenip ilgili sayfaya (ör. M_I) akıtılır.
   - **Hedge Summary çıktı olarak (23.11.2026):** Hedge Plan'ın Summary sayfası çıktı olarak verilir.
+  - **Yönetim sunumu hücre eşlemesi (26.11.2026):** Sunum Excel'inin STAR sayfalarının (`S03`, `S04`, `S06` ve `S02`'deki STAR satırları) hangi dış dosyanın hangi hücresinden beslendiği ve makronun şekil ↔ aralık haritası (Harita sayfası). Ayrıntı sunum Excel'inde.
